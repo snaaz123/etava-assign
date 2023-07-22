@@ -1,4 +1,4 @@
-import { Box, Button, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -55,38 +55,56 @@ const ProductDetailPage=()=>{
      };
     console.log("Data",data)
     return (
-      <Box textAlign="center">
-        <Box  borderRadius="8px" p="2rem" m="auto">
-          
-          <Box>
-            <Image src={data.image} alt="Dan Abramov" boxSize="250px" />
-          </Box>
-          <Box>
-            <Text textAlign="left" marginLeft="1rem" fontWeight="semibold">
-              {data.name}
-            </Text>
-            <Text textAlign="left" marginLeft="1rem" fontWeight="semibold">
-              Rs.{data.price}
-            </Text>
-
-            <Box display="flex">
-              <Button bg="teal" color="white" onClick={handleInc}>
-                +
-              </Button>
-              <Text ml="1rem" mr="1rem">
-                {count}
+      <Box>
+        <Box
+          borderRadius="8px"
+          p="2rem"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <SimpleGrid columns={["1","2","2","2"]}>
+            <Box>
+              <Image
+                src={data.image}
+                alt="Dan Abramov"
+                w={["150px", "150px", "200px", "250px"]}
+                ml="20%"
+              />
+            </Box>
+            <Box>
+              <Text m="1rem" textAlign="left" fontWeight="semibold" >
+                {data.name}
               </Text>
-              <Button bg="teal" color="white" onClick={handleDec}>
-                -
+              <Text m="1rem" textAlign="left" fontWeight="semibold">
+                Rs.{data.price}
+              </Text>
+
+              <Box display="flex" m="1rem">
+                <Button bg="teal" color="white" onClick={handleDec}>
+                  -
+                </Button>
+                <Text ml="1rem" mr="1rem">
+                  {count}
+                </Text>
+                <Button bg="teal" color="white" onClick={handleInc}>
+                  +
+                </Button>
+              </Box>
+              <Button
+                m="1rem"
+                float="left"
+                bg="green"
+                color="white"
+                p="20px"
+                onClick={() => addToData(data)}
+              >
+                Add to Cart
               </Button>
             </Box>
-          </Box>
-         </Box>
-          <Button bg="green" color="white" onClick={() => addToData(data)}>
-            Add to Cart
-          </Button>
+          </SimpleGrid>
         </Box>
-     
+      </Box>
     );
 }
 

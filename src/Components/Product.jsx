@@ -3,8 +3,8 @@ import { Image, Text ,Box} from "@chakra-ui/react";
 const Product=({productsData})=>{
     console.log("hii",productsData.image)
     return (
-      <Box>
-        <Image src={productsData.image} alt="Dan Abramov" boxSize="250px" />
+      <Box >
+        <Image src={productsData.image} alt="Dan Abramov" m='10px' boxSize="250px" textAlign="center" />
 
         <Text
           textAlign="left"

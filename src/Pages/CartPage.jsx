@@ -14,24 +14,23 @@ const CartPage = () => {
 
   useEffect(() => {
     fetchInfo();
-  }, []);
+  }, [data]);
   console.log(data);
   return (
-    <Box w="100%">
-      <SimpleGrid columns={[1, 2, 3, 4]} spacing={["1%", "2%", "3%", "2%"]}>
+    <Box w="100%" mt={["10px", "4px", "4px", "1rem"]} p="0px 20px 0px 20px">
+      <SimpleGrid columns={["1", "2"," 3", "4"]} spacing={["1%", "2%", "3%", "4%"]}>
         {data.length > 0 &&
           data.map((datas, index) => {
             return (
               <Box
                 key={index}
-                border="1px"
-                p="1rem"
-                borderRadius="8px"
+                boxShadow="dark-lg"
+                p="6"
+                rounded="md"
+                bg="white"
                 cursor="pointer"
               >
-             
-                  <CartProduct key={index} productsData={datas} />
-                
+                <CartProduct key={index} productsData={datas} />
               </Box>
             );
           })}

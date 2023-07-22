@@ -12,7 +12,11 @@ const CartProduct = ({ productsData }) => {
    };
   return (
     <Box>
-      <Image src={productsData.image} alt="Dan Abramov" boxSize="250px" />
+      <Image
+        src={productsData.image}
+        alt="Dan Abramov"
+        m="10px"
+      />
 
       <Text
         textAlign="left"
